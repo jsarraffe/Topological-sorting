@@ -106,7 +106,6 @@ std::vector<int> Graph::optimalPath(std::vector<client* > clients) {
 
 
 }
-
 client *Graph::maxNeighbor(client *v) {
     client *tmp = new client(0, 0, 0, -1);
     int max = 0;

@@ -10,7 +10,7 @@ int main() {
     std::string line;
     int start = 0, end = 0, weight = 0, index = 1;
     std::ifstream inputStream;
-    inputStream.open("data3.txt", std::ios::in);
+    inputStream.open("Data3.txt", std::ios::in);
 
     std::vector<client *> clients;
 
@@ -40,9 +40,7 @@ int main() {
         std::cout<<z->clientIndex()<<", ";
     }
 
-    graph->optimalPath(clients);
 
-
-
+    graph->optimalPath(r);
 
 }
