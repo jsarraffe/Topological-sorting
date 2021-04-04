@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/jsarr/Desktop/CS 415/Topological-Sort-master/Graph.h
+queue
+-
+client.h
+C:/Users/jsarr/Desktop/CS 415/Topological-Sort-master/client.h
+vector
+-
+list
+-
+map
+-
+
+C:/Users/jsarr/Desktop/CS 415/Topological-Sort-master/client.h
+
+C:/Users/jsarr/Desktop/CS 415/Topological-Sort-master/main.cpp
+iostream
+-
+fstream
+-
+sstream
+-
+vector
+-
+client.h
+C:/Users/jsarr/Desktop/CS 415/Topological-Sort-master/client.h
+Graph.h
+C:/Users/jsarr/Desktop/CS 415/Topological-Sort-master/Graph.h
+
