@@ -15,9 +15,8 @@ public:
 
     Graph(std::vector<client *> &clients);
     std::vector<client*> topSort(std::vector<client *> clients);
-    std::vector<int> optimalPath(std::vector<client*> clients);
+    std::vector<client*> optimalPath(std::vector<client*> clients);
     client *  maxNeighbor(client * v);
-
 
     void printGraph();
     void topSortHelper();
@@ -25,8 +24,6 @@ public:
 private:
 
     std::vector<std::list<client *>> _adjList;
-     //std::vector<std::vector<client *>> _adjList;
-
     std::queue<client*> topSortQueue;
 
 };

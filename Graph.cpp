@@ -6,12 +6,12 @@
 #include <utility>
 #include <algorithm>
 
-std::vector<client* > Graph::topSort(std::vector<client *> clients) {
+std::vector<client *> Graph::topSort(std::vector<client *> clients) {
     std::queue<client *> q;
-    std::vector<client*> result;
+    std::vector<client *> result;
     auto *currClient = new client(0, 0, 0, 0);
     for (auto &c : clients) {
-        if (c->inDegree() == 0){
+        if (c->inDegree() == 0) {
             q.push(c);
         }
         while (q.size() > 0) {
@@ -30,7 +30,6 @@ std::vector<client* > Graph::topSort(std::vector<client *> clients) {
     }
     return result;
 }
-
 Graph::Graph(std::vector<client *> &clients) {
     std::list<client *> startList;
     _adjList.push_back(startList);
@@ -38,7 +37,7 @@ Graph::Graph(std::vector<client *> &clients) {
         std::list<client *> cl;
         for (auto &cc : clients) {
             if (c->end() <= cc->start() && (c->clientIndex() != cc->clientIndex()) && c->clientIndex() != 0) {
-                std::cout << cc->clientIndex() << " " << c->clientIndex() << std::endl;
+               // std::cout << cc->clientIndex() << " " << c->clientIndex() << std::endl;
                 cc->hasInComingEdge() = true;
                 cc->inDegree()++;
                 cl.push_back(cc);
@@ -47,7 +46,7 @@ Graph::Graph(std::vector<client *> &clients) {
         if (c->clientIndex() != 0)_adjList.push_back(cl);
     }
     auto *end = new client(0, 0, 0, clients.size());
-    std::cout << clients.size() << std::endl;
+    //std::cout << clients.size() << std::endl;
     //adding vertex to start that have no incoming edge
     for (auto &client : clients) {
         if (!client->hasInComingEdge() && client->clientIndex() != 0) {
@@ -79,9 +78,7 @@ void Graph::printGraph() {
         counter++;
     }
 }
-
-std::vector<int> Graph::optimalPath(std::vector<client* > clients) {
-
+std::vector<client *> Graph::optimalPath(std::vector<client *> clients) {
     std::reverse(clients.begin(), clients.end());
     std::map<int, client *> maxPathAndClient;
     for (auto &w : clients) {
@@ -89,22 +86,16 @@ std::vector<int> Graph::optimalPath(std::vector<client* > clients) {
     }
     std::vector<client *> solution;
     int clientKEY = 0;
-    while (clientKEY != -1 && clientKEY != maxPathAndClient.size()-1) {
+    while (clientKEY != -1 && clientKEY != maxPathAndClient.size() - 1) {
         solution.push_back(maxPathAndClient[clientKEY]);
         clientKEY = maxPathAndClient[clientKEY]->clientIndex();
     }
-    std::cout << std::endl;
-    for (int i = 0; i <= solution.size()-2; i++) {
-        std::cout << solution[i]->clientIndex() << std::endl;
-    }
-    for ( auto del = maxPathAndClient.begin(); del != maxPathAndClient.end(); ++del){
-        client * temp = del->second;
+    for (auto del = maxPathAndClient.begin(); del != maxPathAndClient.end(); ++del) {
+        client *temp = del->second;
         delete temp;
     }
     maxPathAndClient.clear();
-    return std::vector<int>();
-
-
+    return solution;
 }
 client *Graph::maxNeighbor(client *v) {
     client *tmp = new client(0, 0, 0, -1);
