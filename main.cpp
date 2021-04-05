@@ -34,8 +34,10 @@ int main() {
     auto *graph = new Graph(clients);
     std::vector<client*> r = graph->topSort(clients);
     auto x =  graph->optimalPath(r);
-    std::cout<<"The are "<<clients.size()-2 << " clients in this file" << std::endl << std::endl;
-    outputStream<<"The are "<<clients.size()-2 << " clients in this file" << std::endl << std::endl;
+    outputStream<<"Input read from "+file << std::endl<<std::endl;
+
+    std::cout<<"There are "<<clients.size()-2 << " clients in this file" << std::endl << std::endl;
+    outputStream<<"There are "<<clients.size()-2 << " clients in this file" << std::endl << std::endl;
     outputStream<<"Optimal Revenue earned is " << x[0]->pathWeight() << std::endl <<std::endl;
     outputStream<<"Clients contributing to this optimal revenue: ";
     std::cout<<"Optimal Revenue earned is " << x[0]->pathWeight() << std::endl <<std::endl;

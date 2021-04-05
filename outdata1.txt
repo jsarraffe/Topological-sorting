@@ -1,3 +1,4 @@
+Input read from data1.txt
 The are 3 clients in this file
 
 Optimal Revenue earned is 220
