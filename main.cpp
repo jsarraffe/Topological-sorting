@@ -18,7 +18,6 @@ int main() {
     inputStream.open(file, std::ios::in);
     outputStream.open("out"+file);
 
-    outputStream.close();
     std::vector<client *> clients;
     if (!inputStream.is_open()) {
         std::cout << "Unable top open " << "S" << ". Terminating...";
@@ -36,17 +35,21 @@ int main() {
     std::vector<client*> r = graph->topSort(clients);
     auto x =  graph->optimalPath(r);
     std::cout<<"The are "<<clients.size()-2 << " clients in this file" << std::endl << std::endl;
-//    out<<"The are "<<clients.size()-2 << " clients in this file" << std::endl << std::endl;
-//    out<<"Optimal Revenue earned is " << x[0]->pathWeight() << std::endl <<std::endl;
-//    out<<"Clients contributing to this optimal revenue: ";
+    outputStream<<"The are "<<clients.size()-2 << " clients in this file" << std::endl << std::endl;
+    outputStream<<"Optimal Revenue earned is " << x[0]->pathWeight() << std::endl <<std::endl;
+    outputStream<<"Clients contributing to this optimal revenue: ";
     std::cout<<"Optimal Revenue earned is " << x[0]->pathWeight() << std::endl <<std::endl;
     std::cout<<"Clients contributing to this optimal revenue: ";
+
+
+
     for (int i = 0; i <=  x.size()-2; i++) {
         std::cout <<  x[i]->clientIndex();
-        //out << x[i]->clientIndex();
+        outputStream<< x[i]->clientIndex();
         if(i != x.size()-2){
             std::cout << ", ";
-           // out << ", ";
+            outputStream<< ", ";
         }
     }
+    outputStream.close();
 }
