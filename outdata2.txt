@@ -1,6 +1,7 @@
 Input read from data2.txt
-The are 5 clients in this file
 
-Optimal Revenue earned is 320
+There are 5 clients in this file
+
+Optimal revenue earned is 450
 
 Clients contributing to this optimal revenue: 2, 3, 5

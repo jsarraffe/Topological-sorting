@@ -38,9 +38,9 @@ int main() {
 
     std::cout<<"There are "<<clients.size()-2 << " clients in this file" << std::endl << std::endl;
     outputStream<<"There are "<<clients.size()-2 << " clients in this file" << std::endl << std::endl;
-    outputStream<<"Optimal Revenue earned is " << x[0]->pathWeight() << std::endl <<std::endl;
+    outputStream<<"Optimal revenue earned is " << x[0]->pathWeight() << std::endl <<std::endl;
     outputStream<<"Clients contributing to this optimal revenue: ";
-    std::cout<<"Optimal Revenue earned is " << x[0]->pathWeight() << std::endl <<std::endl;
+    std::cout<<"Optimal revenue earned is " << x[0]->pathWeight() << std::endl <<std::endl;
     std::cout<<"Clients contributing to this optimal revenue: ";
 
 

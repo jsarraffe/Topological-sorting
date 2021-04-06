@@ -16,7 +16,6 @@ std::vector<client *> Graph::topSort(std::vector<client *> clients) {
         }
         while (q.size() > 0) {
             currClient = q.front();
-            //setting  it as marked
             currClient->inDegree() = -1;
             q.pop();
             result.push_back(currClient);
@@ -37,7 +36,6 @@ Graph::Graph(std::vector<client *> &clients) {
         std::list<client *> cl;
         for (auto &cc : clients) {
             if (c->end() <= cc->start() && (c->clientIndex() != cc->clientIndex()) && c->clientIndex() != 0) {
-               // std::cout << cc->clientIndex() << " " << c->clientIndex() << std::endl;
                 cc->hasInComingEdge() = true;
                 cc->inDegree()++;
                 cl.push_back(cc);
@@ -46,8 +44,6 @@ Graph::Graph(std::vector<client *> &clients) {
         if (c->clientIndex() != 0)_adjList.push_back(cl);
     }
     auto *end = new client(0, 0, 0, clients.size());
-    //std::cout << clients.size() << std::endl;
-    //adding vertex to start that have no incoming edge
     for (auto &client : clients) {
         if (!client->hasInComingEdge() && client->clientIndex() != 0) {
             client->hasInComingEdge() = true;
