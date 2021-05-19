@@ -8,13 +8,6 @@ Instructions to run Code:
 	My development platform is MSI 15.6" GS65 on Windows 10
 
 
-    EXTRA CREDIT:
-
-        I implemented the graph using an adjacency list.
-        I used the queue based source removal algorithm to do my topological sorting.
-
-
-
 	Open this project in Clion.
 
 	In pycharm type CTRL+ALT+S, and  go to the  make sure that you have a compiler selected. I have MinGW as mine.
